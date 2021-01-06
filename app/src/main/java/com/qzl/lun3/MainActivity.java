@@ -1,6 +1,7 @@
 package com.qzl.lun3;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,9 +14,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -81,16 +82,35 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void add() {
+        if (creator.size() >= 4 || groupName.size() >= 4) {
+            Toast.makeText(this, "群聊数量上限", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         Intent intent = new Intent(this, AddActivity.class);
         startActivityForResult(intent, 0);
-
-
     }
 
     private void clear() {
         creator.clear();
         groupName.clear();
         adapter.notifyDataSetChanged();
+    }
+
+    ////////////////////////////onActivityResult///////////////////////////////
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (data == null || groupName.contains(data.getExtras().getString("GroupName"))) {
+            Toast.makeText(this, "添加失败", Toast.LENGTH_SHORT).show();
+        } else {
+            groupName.add(data.getExtras().getString("GroupName"));
+            creator.add(data.getExtras().getString("Creator"));
+            adapter.notifyDataSetChanged();
+            Toast.makeText(this, "创建成功", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     /////////////////////// //////Adapter/////////////////////////////////////
@@ -100,6 +120,8 @@ public class MainActivity extends AppCompatActivity {
         List<Integer> headPic;//头像
         List<String> groupName;//群名
         List<String> creator;//群聊创造者
+
+
 
         public Adapter(List<Integer> headPic, List<String> groupName, List<String> creator) {
             this.headPic = headPic;
@@ -116,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-            holder.headPic.setImageResource(headPic.get(position));
+            holder.headPic.setImageResource(headPic.get(groupName.size() - position - 1));
             holder.groupName.setText(groupName.get(groupName.size() - position - 1));
             holder.creator.setText(creator.get(creator.size() - position - 1));
 

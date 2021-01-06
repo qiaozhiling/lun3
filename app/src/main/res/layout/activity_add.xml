@@ -1,9 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="25dp"
     tools:context=".AddActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <EditText
+
+        android:id="@+id/editGroupName"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="群聊名"
+        tools:ignore="HardcodedText" />
+
+    <EditText
+        android:id="@+id/editCreator"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+
+        android:hint="创建者"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/buttonCreate"
+        android:layout_width="150dp"
+        android:layout_height="55dp"
+        android:textColor="@color/black"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:text="创建新群聊"
+        android:textSize="20sp" />
+
+</LinearLayout>
