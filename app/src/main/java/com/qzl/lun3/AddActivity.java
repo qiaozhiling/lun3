@@ -19,18 +19,20 @@ public class AddActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
 
+        //找到控件
         buttonCreate = findViewById(R.id.buttonCreate);
         editGroupName = findViewById(R.id.editGroupName);
         editCreator = findViewById(R.id.editCreator);
 
+        //点击事件
         buttonCreate.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 if (editGroupName.getText().toString().equals("") | editCreator.getText().toString().equals("")) {
                     Toast.makeText(AddActivity.this, "创建失败,群聊名或创建者为空", Toast.LENGTH_SHORT).show();
                     return;
-                }
+                }//群聊名或创建者为空
+
                 Intent intent = getIntent();
                 Bundle bundle = new Bundle();
 
@@ -40,9 +42,7 @@ public class AddActivity extends AppCompatActivity {
                 intent.putExtras(bundle);
                 setResult(1, intent);
                 finish();
-
             }
         });
-
     }
 }

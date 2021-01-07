@@ -3,6 +3,7 @@ package com.qzl.lun3;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
@@ -14,16 +15,22 @@ public class DetailActivity extends AppCompatActivity {
 
     Button button;
     ImageView headPicDetail;
-    TextView groupNameDetail,creatorNameDetail;
+    TextView groupNameDetail, creatorNameDetail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
-        Intent intent=getIntent();
+        Intent intent = this.getIntent();
+        headPicDetail = findViewById(R.id.headPicDetail);
+        groupNameDetail = findViewById(R.id.groupNameDetail);
+        creatorNameDetail = findViewById(R.id.creatorNameDetail);
 
 
+        headPicDetail.setImageResource(intent.getExtras().getInt("picId"));
+        groupNameDetail.setText(intent.getExtras().getString("groupName"));
+        creatorNameDetail.setText(intent.getExtras().getString("creator"));
 
         button = findViewById(R.id.sure);
         button.setOnClickListener(new View.OnClickListener() {

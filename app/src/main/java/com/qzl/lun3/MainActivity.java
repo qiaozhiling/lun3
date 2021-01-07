@@ -7,6 +7,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -38,24 +42,25 @@ public class MainActivity extends AppCompatActivity {
 
         adapter.setOnItemClickListener(new RecyclerAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(View v) {
-                toDetail(v);
+            public void onItemClick(View v, int headPicId) {
+                toDetail(v, headPicId);
             }
         });
     }
 
-    /////////////////////////////Detail///////////////////////////////////////
-    public void toDetail(View v) {
+    /////////////////////////////toDetail///////////////////////////////////////
+    public void toDetail(View v, int headPicId) {
 
         ImageView headPic = v.findViewById(R.id.headPic);
         TextView groupName = v.findViewById(R.id.groupName);
         TextView creator = v.findViewById(R.id.creator);
-
-
+        Intent intent = new Intent(this, DetailActivity.class);
         Bundle bundle = new Bundle();
 
+        bundle.putInt("picId", headPicId);
+        bundle.putString("groupName", groupName.getText().toString());
+        bundle.putString("creator", creator.getText().toString());
 
-        Intent intent = new Intent(this, DetailActivity.class);
         intent.putExtras(bundle);
         startActivity(intent);
     }

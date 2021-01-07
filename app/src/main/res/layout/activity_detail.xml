@@ -10,38 +10,69 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="50dp" />
 
-        android:background="@drawable/unxx" />
 
-    <TextView
-        android:id="@+id/groupNameDetail"
+    <LinearLayout
+        android:id="@+id/line1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/headPicDetail"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
-        android:text="groupName"
-        android:textSize="25sp" />
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/creatorNameDetail"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="群聊名字："
+            android:textColor="@color/black"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/groupNameDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="groupName"
+            android:textColor="@color/black"
+            android:textSize="25sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/line2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/groupNameDetail"
+        android:layout_below="@+id/line1"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
-        android:text="creatorName"
-        android:textSize="25sp" />
+        android:layout_marginTop="25dp">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="创建者："
+            android:textColor="@color/black"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/creatorNameDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="creatorName"
+
+            android:textColor="@color/black"
+            android:textSize="25sp" />
+    </LinearLayout>
+
 
     <Button
+        android:id="@+id/sure"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/creatorNameDetail"
+        android:layout_below="@+id/line2"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="35dp"
         android:text="确定"
-        android:id="@+id/sure"
         android:textSize="20sp" />
 
 </RelativeLayout>

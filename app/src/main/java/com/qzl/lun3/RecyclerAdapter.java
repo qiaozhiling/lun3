@@ -30,7 +30,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         //头像设置 四个一循环
-        int size=data.headPic.size();
+        int size = data.headPic.size();
+        holder.picId = data.headPic.get((data.groupName.size() - position - 1) % size);
         holder.headPic.setImageResource(data.headPic.get((data.groupName.size() - position - 1) % size));
         holder.groupName.setText(data.groupName.get(data.groupName.size() - position - 1));
         holder.creator.setText(data.creator.get(data.creator.size() - position - 1));
@@ -44,6 +45,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
+        int picId;
         ImageView headPic;
         TextView creator;
         TextView groupName;
@@ -58,7 +60,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                 @Override
                 public void onClick(View v) {
                     if (onItemClickListener != null) {
-                        onItemClickListener.onItemClick(v);
+                        onItemClickListener.onItemClick(v, picId);
                     }
                 }
             });
@@ -67,7 +69,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     }
 
     public interface OnItemClickListener {
-        void onItemClick(View v);
+        void onItemClick(View v, int headPicID);
     }
 
     public void setOnItemClickListener(OnItemClickListener onItemClickListener) {

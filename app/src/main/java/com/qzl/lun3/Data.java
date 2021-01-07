@@ -11,17 +11,22 @@ public class Data {
     public Data() {
 
         headPic = new ArrayList<>();
-        headPic.add(R.drawable.rua);
         headPic.add(R.drawable.head1);
         headPic.add(R.drawable.head2);
         headPic.add(R.drawable.head3);
         headPic.add(R.drawable.head4);
+        headPic.add(R.drawable.head5);
+        headPic.add(R.drawable.head6);
+        headPic.add(R.drawable.head7);
 
         groupName = new ArrayList<>();
         creator = new ArrayList<>();
 
-        groupName.add("A");
-        creator.add("a");
+        /*int n = 1;
+        for (int i = 0; i < n; i++) {
+            groupName.add("" + (n - i));
+            creator.add("" + (n - i));
+        }*/
     }
 
 }
