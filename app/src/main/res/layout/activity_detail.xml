@@ -1,9 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DetailActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:id="@+id/headPicDetail"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+
+        android:background="@drawable/unxx" />
+
+    <TextView
+        android:id="@+id/groupNameDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/headPicDetail"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:text="groupName"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/creatorNameDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/groupNameDetail"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:text="creatorName"
+        android:textSize="25sp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/creatorNameDetail"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"
+        android:text="确定"
+        android:id="@+id/sure"
+        android:textSize="20sp" />
+
+</RelativeLayout>
