@@ -9,7 +9,6 @@ public class Data {
     ArrayList<String> creator;//群聊创造者
 
     public Data() {
-
         headPic = new ArrayList<>();
         headPic.add(R.drawable.head1);
         headPic.add(R.drawable.head2);
@@ -22,11 +21,13 @@ public class Data {
         groupName = new ArrayList<>();
         creator = new ArrayList<>();
 
-        /*int n = 1;
+        //随便来点初始数据
+        int n = 1;
         for (int i = 0; i < n; i++) {
             groupName.add("" + (n - i));
             creator.add("" + (n - i));
-        }*/
+        }
+
     }
 
 }

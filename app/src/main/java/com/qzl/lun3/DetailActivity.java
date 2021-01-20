@@ -27,8 +27,7 @@ public class DetailActivity extends AppCompatActivity {
         groupNameDetail = findViewById(R.id.groupNameDetail);
         creatorNameDetail = findViewById(R.id.creatorNameDetail);
 
-
-        headPicDetail.setImageResource(intent.getExtras().getInt("picId"));
+        headPicDetail.setImageResource( /*头像图片的id*/ intent.getExtras().getInt("picId"));
         groupNameDetail.setText(intent.getExtras().getString("groupName"));
         creatorNameDetail.setText(intent.getExtras().getString("creator"));
 

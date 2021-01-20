@@ -41,7 +41,7 @@ public class AddActivity extends AppCompatActivity {
 
                 intent.putExtras(bundle);
                 setResult(1, intent);
-                finish();
+                finish();//结束activity
             }
         });
     }

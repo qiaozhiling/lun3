@@ -12,24 +12,26 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
 
-    Context context;
-    Data data;
+    Context context;//上下文？
+    Data data;//数据
 
     public RecyclerAdapter(Context context, Data data) {
         this.context = context;
         this.data = data;
-    }
+    }//实例RecyclerAdapter方法
 
     @NonNull
     @Override
+    //onCreateViewHolder（）方法，负责承载每个子项的布局。它有两个参数，其中一个是 int viewType;
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         return new ViewHolder(LayoutInflater.from(context).inflate(R.layout.recycler_, parent, false));
     }
 
     @Override
+    //onBindViewHolder()方法，负责将每个子项holder绑定数据
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        //头像设置 四个一循环
+        //头像循环设置
         int size = data.headPic.size();
         holder.picId = data.headPic.get((data.groupName.size() - position - 1) % size);
         holder.headPic.setImageResource(data.headPic.get((data.groupName.size() - position - 1) % size));
@@ -41,7 +43,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     @Override
     public int getItemCount() {
         return data.groupName.size();
-    }
+    }//item个数
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
@@ -68,6 +70,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         }
     }
 
+    ////////////////////////////////////////////////////////////////////
     public interface OnItemClickListener {
         void onItemClick(View v, int headPicID);
     }
